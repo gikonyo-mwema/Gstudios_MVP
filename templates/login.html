@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
     <div class="login-form">
@@ -24,7 +25,20 @@
             </div>
             <p class="small text-center">By clicking the Login button, you agree to our <br><a href="#">Terms & Conditions</a>, and <a href="#">Privacy Policy</a>.</p>
         </form>
+        <!-- Google Sign-In button -->
+        <div id="g_id_onload"
+             data-client_id="178099881422-d5i1jb27g4idoo39vvcl1b4go2rs2vus.apps.googleusercontent.com"
+             data-callback="handleCredentialResponse">
+        </div>
+        <div class="g_id_signin" data-type="standard"></div>
         <div class="text-center">Don't have an account? <a href="/sign_up">Sign up here</a>.</div>
     </div>
+    <!-- JavaScript code -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+    function handleCredentialResponse(response) {
+        console.log("ID: " + response.credential);
+    }
+    </script>
 </body>
 </html>

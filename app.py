@@ -43,7 +43,7 @@ def signUp():
             user, error = supabase.auth.sign_up({"email": email, "password": password})
             if user:
                 # Update the user's profile to include their name
-                supabase.table("users").update({"name": username}).match({"id": user.id}).execute()
+                supabase.table("users").update({"name": username}).match({"id": user['id']}).execute()
 
     if error:
         # Handle any errors
@@ -54,6 +54,7 @@ def signUp():
 
     # Render the sign-up form
     return render_template('sign_up.html')
+
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
