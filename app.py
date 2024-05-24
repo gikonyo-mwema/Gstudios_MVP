@@ -1,12 +1,17 @@
-from flask import Flask, render_template, jsonify, request
-from supabase_py import create_client, Client
-from werkzeug.security import generate_password_hash
-
-SUPABASE_URL = "https://wulvhqxiuvcmnecalaax.supabase.co"
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind1bHZocXhpdXZjbW5lY2FsYWF4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTYzMTU5MTQsImV4cCI6MjAzMTg5MTkxNH0.euL3iput-qiDL4yFD8hLT8-5iRf-ppCoOOtU9K2GuxU"
-supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+from dotenv import load_dotenv
+load_dotenv()
+from flask import Flask, render_template, request
+from supabase import create_client
+import os
 
 app = Flask(__name__, static_url_path='/static')
+
+
+# Initialize Supabase client
+url = os.environ.get("SUPABASE_URL")
+key = os.environ.get("SUPABASE_KEY")
+supabase= create_client(url, key)
+
 
 @app.route("/")
 def hello_Gstudios():
@@ -14,24 +19,62 @@ def hello_Gstudios():
 
 @app.route("/dashboard")
 def dashboard():
-    return render_template('dashboard.html')  
+    return render_template('dashboard.html')
 
-@app.route("/login")
-def login():
-    return render_template('login.html')
  
 @app.route("/sign_up", methods=['GET', 'POST'])
 def signUp():
-    if request.method == 'POST':
-        username = request.form.get('username')
-        email = request.form.get('email')
-        password = request.form.get('password')
-        # hash the password before storing it
-        password_hash = generate_password_hash(password)
+    # Initialize variables
+    username = None
+    email = None
+    password = None
+    error = None
+    user = None
 
-        # Insert the new user into the users table
-        user = supabase.table("users").insert([{"name": username, "email":email, "password_hash":password_hash}]).execute()
+    if request.method == "POST":
+        # Extract form data
+        username = request.form.get("username")
+        email = request.form.get("email")
+        password = request.form.get("password")
+
+        # Check if email and password are not None or empty
+        if email and password:
+            # Sign up the user using Supabase Auth API
+            user, error = supabase.auth.sign_up({"email": email, "password": password})
+            if user:
+                # Update the user's profile to include their name
+                supabase.table("users").update({"name": username}).match({"id": user.id}).execute()
+
+    if error:
+        # Handle any errors
+        return render_template('error.html', message=error.message)
+    elif user:
+        # User successfully signed up
+        return render_template("success.html", message="Sign-up successful!")
+
+    # Render the sign-up form
     return render_template('sign_up.html')
+
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    if request.method == "POST":
+        # Extract form data
+        email = request.form.get("email")
+        password = request.form.get("password")
+
+        # Check if email and password are not None or empty
+        if email and password:
+            # Sign in the use using Supabase Auth API
+            user, error = supabase.auth.sign_in_with_password({"email": email, "password": password})
+            if error:
+                # Handle login errors
+                return render_template('error.html', message=error.message)
+        
+            # User successfully logged in
+            return render_template('dashboard.html') #Redirect to the dashboard or another page
+    
+    return render_template('login.html')
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
