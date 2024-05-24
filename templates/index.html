@@ -118,6 +118,23 @@
             </section>    
             <!-- End Services Section -->
 
+            <!-- Designers -->
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+                {% for designer in designers %}
+                <!-- Designer -->
+                <div class="col">
+                    <div class="card">
+                        <img src="{{ designer.profile_picture }}" class="card-img-top" alt="{{ designer.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ designer.name }}</h5>
+                            <p class="card-text">Marketing Designer</p>
+                            <p>{{ designer.bio }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
             <!-- Designers Section -->
             <section id="designers"class="py-5">
                 <div class="container">
@@ -129,7 +146,7 @@
                     <!-- Designer 1 -->
                     <div class="col">
                         <div class="card">
-                            <img src="{{ url_for('static', filename='images/designer6.jpg') }}" class="card-img-top" alt="Designer 1">
+                            <img src="https://syaciuejmtfsntyotudm.supabase.co/storage/v1/object/sign/Gstudios_bucket/designer7.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJHc3R1ZGlvc19idWNrZXQvZGVzaWduZXI3LmpwZyIsImlhdCI6MTcxNjQzNTQ1MywiZXhwIjoxNzQ3OTcxNDUzfQ.W1J_PoB-y7_ucAe9uYE9SbnZc398ikduiIM-TaRXjp8&t=2024-05-23T03%3A37%3A33.886Z" class="card-img-top" alt="Designer 1">
                             <div class="card-body">
                                 <h5 class="card-title">Joan Kamau</h5>
                                 <p class="card-text">Marketing Designer</p>
