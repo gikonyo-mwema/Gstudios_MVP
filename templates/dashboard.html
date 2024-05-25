@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Gstudio Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dashboard.css') }}">
 </head>
 <body>
@@ -21,72 +24,42 @@
         <!-- User Management -->
         <div id="user-management">
             <h2>User Management</h2>
-            <!-- Form for adding a user -->
             <form id="add-user-form">
                 <input type="text" name="username" placeholder="Username">
                 <input type="email" name="email" placeholder="Email">
                 <input type="password" name="password" placeholder="Password">
                 <input type="submit" value="Add User">
             </form>
-            <!-- Form for updating a user -->
-            <form id="update-user-form">
+            <form id="add-user-form">
                 <input type="text" name="username" placeholder="Username">
                 <input type="email" name="email" placeholder="Email">
                 <input type="password" name="password" placeholder="Password">
-                <input type="submit" value="Update User">
+                <input type="submit" value="Remove User">
             </form>
-            <!-- Form for deleting a user -->
-            <form id="delete-user-form">
-                <input type="text" name="username" placeholder="Username">
-                <input type="submit" value="Delete User">
-            </form>
-            <!-- Table to display users -->
-            <table id="user-table">
-                <tr>
-                    <th>Username</th>
-                    <th>Email</th>
-                </tr>
-                <!-- Add a row for each user -->
-            </table>
+            <!-- Other user management forms and table -->
         </div>
 
         <!-- Designer Management -->
         <div id="designer-management">
             <h2>Designer Management</h2>
-            <!-- Form for adding a designer -->
             <form id="add-designer-form">
                 <input type="text" name="name" placeholder="Name">
                 <input type="email" name="email" placeholder="Email">
                 <input type="text" name="portfolio_link" placeholder="Portfolio Link">
                 <input type="submit" value="Add Designer">
             </form>
-            <!-- Form for updating a designer -->
-            <form id="update-designer-form">
+            <form id="add-designer-form">
                 <input type="text" name="name" placeholder="Name">
                 <input type="email" name="email" placeholder="Email">
                 <input type="text" name="portfolio_link" placeholder="Portfolio Link">
-                <input type="submit" value="Update Designer">
-            </form>
-            <!-- Form for deleting a designer -->
-            <form id="delete-designer-form">
-                <input type="text" name="name" placeholder="Name">
-                <input type="submit" value="Delete Designer">
-            </form>
-            <!-- Table to display designers -->
-            <table id="designer-table">
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Portfolio Link</th>
-                </tr>
-                <!-- Add a row for each designer -->
-            </table>
+                <input type="submit" value="Remove Designer">
+            </form> 
+            <!-- Other designer management forms and table -->
         </div>
 
         <!-- Portfolio Management -->
         <div id="portfolio-management">
             <h2>Portfolio Management</h2>
-            <!-- Form for adding a portfolio project -->
             <form id="add-portfolio-form">
                 <input type="text" name="title" placeholder="Title">
                 <input type="text" name="description" placeholder="Description">
@@ -94,36 +67,17 @@
                 <input type="text" name="project_type" placeholder="Project Type">
                 <input type="submit" value="Add Project">
             </form>
-            <!-- Form for updating a portfolio project -->
-            <form id="update-portfolio-form">
+            <form id="add-portfolio-form">
                 <input type="text" name="title" placeholder="Title">
                 <input type="text" name="description" placeholder="Description">
                 <input type="text" name="image_url" placeholder="Image URL">
                 <input type="text" name="project_type" placeholder="Project Type">
-                <input type="submit" value="Update Project">
+                <input type="submit" value="Remove Project">
             </form>
-            <!-- Form for deleting a portfolio project -->
-            <form id="delete-portfolio-form">
-                <input type="text" name="title" placeholder="Title">
-                <input type="submit" value="Delete Project">
-            </form>
-            <!-- Table to display portfolio projects -->
-            <table id="portfolio-table">
-                <tr>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Image URL</th>
-                    <th>Project Type</th>
-                </tr>
-                <!-- Add a row for each portfolio project -->
-            </table>
+            <!-- Other portfolio management forms and table -->
         </div>
 
-        <!-- Analytics -->
-        <div id="analytics">
-            <h2>Analytics</h2>
-            <!-- Add your charts and tables here -->
-        </div>
+        
     </div>
 </body>
 </html>

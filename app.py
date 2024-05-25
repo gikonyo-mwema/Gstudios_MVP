@@ -1,17 +1,15 @@
-from dotenv import load_dotenv
-load_dotenv()
 from flask import Flask, render_template, request
+from dashboard_routes import dashboard_bp
 from supabase import create_client
 import os
 
 app = Flask(__name__, static_url_path='/static')
-
+app.register_blueprint(dashboard_bp, url_prefix='/dashboard')
 
 # Initialize Supabase client
 url = os.environ.get("SUPABASE_URL")
 key = os.environ.get("SUPABASE_KEY")
-supabase= create_client(url, key)
-
+supabase = create_client(url, key)
 
 @app.route("/")
 def hello_Gstudios():
@@ -21,9 +19,8 @@ def hello_Gstudios():
 def dashboard():
     return render_template('dashboard.html')
 
- 
 @app.route("/sign_up", methods=['GET', 'POST'])
-def signUp():
+def sign_up():
     # Initialize variables
     username = None
     email = None
@@ -55,7 +52,6 @@ def signUp():
     # Render the sign-up form
     return render_template('sign_up.html')
 
-
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if request.method == "POST":
@@ -65,17 +61,17 @@ def login():
 
         # Check if email and password are not None or empty
         if email and password:
-            # Sign in the use using Supabase Auth API
+            # Sign in the user using Supabase Auth API
             user, error = supabase.auth.sign_in_with_password({"email": email, "password": password})
             if error:
                 # Handle login errors
                 return render_template('error.html', message=error.message)
-        
-            # User successfully logged in
-            return render_template('dashboard.html') #Redirect to the dashboard or another page
-    
-    return render_template('login.html')
 
+            # User successfully logged in
+            return render_template('dashboard.html')  # Redirect to the dashboard or another page
+
+    # Render the login form
+    return render_template('login.html')
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
