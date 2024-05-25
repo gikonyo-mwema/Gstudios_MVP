@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+load_dotenv()
 from flask import Flask, render_template, request
 from dashboard_routes import dashboard_bp
 from supabase import create_client
@@ -6,6 +8,16 @@ import os
 app = Flask(__name__, static_url_path='/static')
 app.register_blueprint(dashboard_bp, url_prefix='/dashboard')
 
+#from flask import Flask, render_template, request
+##from dashboard_routes import dashboard_bp
+##from supabase import create_client
+##from dotenv import load_dotenv
+#import os
+
+#app = Flask(__name__, static_url_path='/static')
+#app.register_blueprint(dashboard_bp, url_prefix='/dashboard')
+
+#load_dotenv()
 # Initialize Supabase client
 url = os.environ.get("SUPABASE_URL")
 key = os.environ.get("SUPABASE_KEY")
