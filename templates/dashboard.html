@@ -15,7 +15,7 @@
             <li><a href="#user-management">User Management</a></li>
             <li><a href="#designer-management">Designer Management</a></li>
             <li><a href="#portfolio-management">Portfolio Management</a></li>
-            <li><a href="#analytics">Analytics</a></li>
+            
         </ul>
     </div>
 
@@ -24,19 +24,17 @@
         <!-- User Management -->
         <div id="user-management">
             <h2>User Management</h2>
-            <form id="add-user-form">
+            <form action="/dashboard/add_profile" method="post">            
                 <input type="text" name="username" placeholder="Username">
                 <input type="email" name="email" placeholder="Email">
-                <input type="password" name="password" placeholder="Password">
                 <input type="submit" value="Add User">
             </form>
-            <form id="add-user-form">
+            
+            <form id="remove-user-form">
                 <input type="text" name="username" placeholder="Username">
-                <input type="email" name="email" placeholder="Email">
-                <input type="password" name="password" placeholder="Password">
                 <input type="submit" value="Remove User">
             </form>
-            <!-- Other user management forms and table -->
+            <!-- Additional user management forms and table go here -->
         </div>
 
         <!-- Designer Management -->
@@ -48,13 +46,11 @@
                 <input type="text" name="portfolio_link" placeholder="Portfolio Link">
                 <input type="submit" value="Add Designer">
             </form>
-            <form id="add-designer-form">
+            <form id="remove-designer-form">
                 <input type="text" name="name" placeholder="Name">
-                <input type="email" name="email" placeholder="Email">
-                <input type="text" name="portfolio_link" placeholder="Portfolio Link">
                 <input type="submit" value="Remove Designer">
-            </form> 
-            <!-- Other designer management forms and table -->
+            </form>
+            <!-- Additional designer management forms and table go here -->
         </div>
 
         <!-- Portfolio Management -->
@@ -67,17 +63,14 @@
                 <input type="text" name="project_type" placeholder="Project Type">
                 <input type="submit" value="Add Project">
             </form>
-            <form id="add-portfolio-form">
+            <form id="remove-portfolio-form">
                 <input type="text" name="title" placeholder="Title">
-                <input type="text" name="description" placeholder="Description">
-                <input type="text" name="image_url" placeholder="Image URL">
-                <input type="text" name="project_type" placeholder="Project Type">
                 <input type="submit" value="Remove Project">
             </form>
-            <!-- Other portfolio management forms and table -->
-        </div>
-
         
+            <!-- Additional portfolio management forms and table go here -->
+        </div>
+        <!-- Other sections (e.g., analytics) can be added similarly -->
     </div>
 </body>
 </html>

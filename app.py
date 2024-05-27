@@ -8,17 +8,7 @@ import os
 app = Flask(__name__, static_url_path='/static')
 app.register_blueprint(dashboard_bp, url_prefix='/dashboard')
 
-#from flask import Flask, render_template, request
-##from dashboard_routes import dashboard_bp
-##from supabase import create_client
-##from dotenv import load_dotenv
-#import os
 
-#app = Flask(__name__, static_url_path='/static')
-#app.register_blueprint(dashboard_bp, url_prefix='/dashboard')
-
-#load_dotenv()
-# Initialize Supabase client
 url = os.environ.get("SUPABASE_URL")
 key = os.environ.get("SUPABASE_KEY")
 supabase = create_client(url, key)
@@ -33,13 +23,7 @@ def dashboard():
 
 @app.route("/sign_up", methods=['GET', 'POST'])
 def sign_up():
-    # Initialize variables
-    username = None
-    email = None
-    password = None
     error = None
-    user = None
-
     if request.method == "POST":
         # Extract form data
         username = request.form.get("username")
@@ -51,15 +35,18 @@ def sign_up():
             # Sign up the user using Supabase Auth API
             user, error = supabase.auth.sign_up({"email": email, "password": password})
             if user:
-                # Update the user's profile to include their name
-                supabase.table("users").update({"name": username}).match({"id": user['id']}).execute()
+                # Update the user's profile to include their name (username)
+                supabase.table("profiles").update({"username": username}).match({"id": user['id']}).execute()
 
+                # Log the user ID if sign-up is successful
+                print(f"New user signed up. User ID: {user[1]}")
+
+                # Redirect to a success page or another route
+                return render_template("success.html", message="Sign-up successful!")
+
+    # Handle any errors
     if error:
-        # Handle any errors
         return render_template('error.html', message=error.message)
-    elif user:
-        # User successfully signed up
-        return render_template("success.html", message="Sign-up successful!")
 
     # Render the sign-up form
     return render_template('sign_up.html')
