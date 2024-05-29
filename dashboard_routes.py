@@ -26,62 +26,71 @@ def add_designer():
         email = request.form.get("email")
         portfolio_link = request.form.get("portfolio_link")
 
-        # Validate input (e.g., check if email is unique)
         # Add the designer to the Supabase 'designers' table
         designers_data, error = supabase.table('designers').insert([
             {"name": name, "email": email, "portfolio_link": portfolio_link}
         ]).execute()
+
         if error:
             return f"Error adding designer: {error.message}", 500
-        return render_template('dashboard.designers')  # Redirect to the designers page
+
+        # Redirect to the dashboard page 
+        return render_template('dashboard.html')
+
     except Exception as e:
         return f"Error adding designer: {str(e)}", 500
 
+
 # Update a designer
-@dashboard_bp.route('/update_designer/<int:designer_id>', methods=['POST'])
-def update_designer(designer_id):
+@dashboard_bp.route('/update_designer/', methods=['POST'])
+def update_designer():
     try:
-        # Extract form data
+        designer_id = request.form.get("designer_id")
         updated_name = request.form.get("updated_name")
         updated_portfolio_link = request.form.get("updated_portfolio_link")
+
+        # Validate designer_id (ensure it's a valid integer)
+        try:
+            designer_id = int(designer_id)
+        except ValueError:
+            return "Invalid designer ID", 400
 
         # Update designer information in the Supabase 'designers' table
         designers_data, error = supabase.table('designers').update({
             "name": updated_name,
             "portfolio_link": updated_portfolio_link
         }).eq('id', designer_id).execute()
+
         if error:
             return f"Error updating designer: {error.message}", 500
-        return render_template('designers.html', designers=designers_data)  # Redirect to the designers page
+
+        # Redirect to the designers page (adjust template name as needed)
+        return render_template('designers.html', designers=designers_data), 200
+
     except Exception as e:
         return f"Error updating designer: {str(e)}", 500
+
 
 # Remove a designer
 @dashboard_bp.route('/remove_designer/<int:designer_id>', methods=['POST'])
 def remove_designer(designer_id):
     try:
+        # Validate designer_id (ensure it's a valid integer)
+        if not isinstance(designer_id, int):
+            return "Invalid designer ID", 400
+
         # Delete the designer from the Supabase 'designers' table
         designers_data, error = supabase.table('designers').delete().eq('id', designer_id).execute()
         if error:
             return f"Error removing designer: {error.message}", 500
-        return render_template('designers.html', designers=designers_data)# Redirect to the designers page
+
+        # Redirect to the designers page
+        return render_template('designers.html', designers=designers_data), 200
+
     except Exception as e:
         return f"Error removing designer: {str(e)}", 500
 
-# Display all designers
-@dashboard_bp.route('/designers', methods=['GET'])
-def designers():
-    try:
-        # Fetch all designers from the Supabase 'designers' table
-        designers_data, error = supabase.table('designers').select('*').execute()
 
-        if error:
-            return f"Error fetching designers: {error.message}", 500
-
-        # Render the designers data (e.g., display it in a template)
-        return render_template('designers.html', designers=designers_data)
-    except Exception as e:
-        return f"Error fetching designers: {str(e)}", 500
 
 #####################################################
                   #PORTFOLIO
@@ -102,57 +111,58 @@ def add_portfolio():
         portfolio_data, error = supabase.table('portfolio').insert([
             {"title": title, "description": description, "image_url": image_url, "project_type": project_type}
         ]).execute()
+
         if error:
             return f"Error adding portfolio item: {error.message}", 500
-        return render_template('designers.html', designers=designers_data)  # Redirect to the portfolio page
+
+        # Redirect to the portfolio page after successful addition
+        return render_template('dashboard.html')
+
     except Exception as e:
         return f"Error adding portfolio item: {str(e)}", 500
 
-# Update a portfolio item
+
 @dashboard_bp.route('/update_portfolio/<int:portfolio_id>', methods=['POST'])
 def update_portfolio(portfolio_id):
     try:
         # Extract form data
-        updated_title = request.form.get("updated_title")
-        updated_description = request.form.get("updated_description")
+        updated_title = request.form.get("title")
+        updated_description = request.form.get("description")
+        updated_project_type = request.form.get("project_type")
+        updated_image_url = request.form.get("image_url")
 
         # Update the portfolio item in the Supabase 'portfolio' table
         portfolio_data, error = supabase.table('portfolio').update({
             "title": updated_title,
-            "description": updated_description
+            "description": updated_description,
+            "project_type": updated_project_type,
+            "image_url": updated_image_url
         }).eq('id', portfolio_id).execute()
+
         if error:
             return f"Error updating portfolio item: {error.message}", 500
-        return render_template('designers.html', designers=designers_data)  # Redirect to the portfolio page
+
+        # Redirect to the portfolio page after successful update
+        return render_template('dashboard.html')
+
     except Exception as e:
         return f"Error updating portfolio item: {str(e)}", 500
 
-# Remove a portfolio item
+
 @dashboard_bp.route('/remove_portfolio/<int:portfolio_id>', methods=['POST'])
 def remove_portfolio(portfolio_id):
     try:
         # Delete the portfolio item from the Supabase 'portfolio' table
         portfolio_data, error = supabase.table('portfolio').delete().eq('id', portfolio_id).execute()
+
         if error:
             return f"Error removing portfolio item: {error.message}", 500
-        return render_template('designers.html', designers=designers_data)  # Redirect to the portfolio page
+
+        # Redirect to the portfolio page after successful removal
+        return render_template('dashboard.html')
+
     except Exception as e:
         return f"Error removing portfolio item: {str(e)}", 500
-
-# Display all portfolio items
-@dashboard_bp.route('/portfolio', methods=['GET'])
-def portfolio():
-    try:
-        # Fetch all portfolio items from the Supabase 'portfolio' table
-        portfolio_data, error = supabase.table('portfolio').select('*').execute()
-
-        if error:
-            return f"Error fetching portfolio items: {error.message}", 500
-
-        # Render the portfolio data (e.g., display it in a template)
-        return render_template('portfolio.html', portfolio=portfolio_data)
-    except Exception as e:
-        return f"Error fetching portfolio items: {str(e)}", 500
 
 
 #####################################################
@@ -164,18 +174,27 @@ def portfolio():
 def add_profile():
     try:
         # Extract form data
-        username = request.form.get("username")    
-        email = request.form.get("email")
-        
-        # Add a new profile to the Supabase 'profiles' table
+        title = request.form.get("title")
+        description = request.form.get("description")
+        image_url = request.form.get("image_url")
+        project_type = request.form.get("project_type")
+
+        # Add the profile item to the Supabase 'profiles' table
         profiles_data, error = supabase.table('profiles').insert([
-            {"username": username, "email": email}
+            {"title": title, "description": description, "image_url": image_url, "project_type": project_type}
         ]).execute()
+
         if error:
-            return f"Error adding profile: {error.message}", 500
-        return "Profile added successfully!"
+            # Handle the error case
+            return render_template('dashboard.html', error_message=f"Error adding profile item: {error.message}")
+
+        # Redirect to a success page or display a success message
+        return render_template('success.html', message="Profile item added successfully!")
+
     except Exception as e:
-        return f"Error adding profile: {str(e)}", 500
+        # Handle other exceptions
+        return render_template('dashboard.html', error_message=f"Error adding profile item: {str(e)}")
+
 
 # Update profile info
 @dashboard_bp.route('/update_profile', methods=['POST'])
@@ -195,9 +214,12 @@ def update_profile():
 
         if error:
             return f"Error updating profile: {error.message}", 500
+
         return "Profile information updated successfully!"
+
     except Exception as e:
         return f"Error updating profile: {str(e)}", 500
+
 
 # Remove a profile
 @dashboard_bp.route('/remove_profile', methods=['POST'])
@@ -207,26 +229,14 @@ def remove_profile():
         user_id = request.form.get("id")  # Assuming you have a unique user ID
 
         # Delete the profile from the Supabase 'profiles' table
-        profiles_data, error = supabase.table('profiles').delete().eq('id', id).execute()
+        profiles_data, error = supabase.table('profiles').delete().eq('id', user_id).execute()
+
         if error:
             return f"Error removing profile: {error.message}", 500
+
         return "Profile removed successfully!"
+
     except Exception as e:
         return f"Error removing profile: {str(e)}", 500
 
-
-# Display all profiles
-@dashboard_bp.route('/profiles', methods=['GET'])
-def profiles():
-    try:
-        # Fetch all profiles from the Supabase 'profiles' table
-        profiles_data, error = supabase.table('profiles').select('*').execute()
-
-        if error:
-            return f"Error fetching profiles: {error.message}", 500
-
-        # Render the profiles data (e.g., display it in a template)
-        return render_template('profiles.html', profiles=profiles_data)
-    except Exception as e:
-        return f"Error fetching profiles: {str(e)}", 500
 
