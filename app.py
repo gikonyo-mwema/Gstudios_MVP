@@ -3,9 +3,14 @@ load_dotenv()
 from flask import Flask, render_template, request
 from dashboard_routes import dashboard_bp
 from supabase import create_client
+from logging import FileHandler, WARNING
 import os
 
-app = Flask(__name__, static_url_path='/static')
+app = Flask(__name__, template_folder='templates')
+file_handler = FileHandler('errorlog.txt')
+file_handler.setLevel(WARNING)
+
+
 app.register_blueprint(dashboard_bp, url_prefix='/dashboard')
 
 
@@ -36,7 +41,7 @@ def sign_up():
             user, error = supabase.auth.sign_up({"email": email, "password": password})
             if user:
                 # Update the user's profile to include their name (username)
-                supabase.table("profiles").update({"username": username}).match({"id": user['id']}).execute()
+               # supabase.table("profiles").update({"username": username}).match({"id": user['id']}).execute()
 
                 # Log the user ID if sign-up is successful
                 print(f"New user signed up. User ID: {user[1]}")

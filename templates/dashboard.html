@@ -15,7 +15,6 @@
             <li><a href="#user-management">User Management</a></li>
             <li><a href="#designer-management">Designer Management</a></li>
             <li><a href="#portfolio-management">Portfolio Management</a></li>
-            
         </ul>
     </div>
 
@@ -24,53 +23,41 @@
         <!-- User Management -->
         <div id="user-management">
             <h2>User Management</h2>
-            <form action="/dashboard/add_profile" method="post">            
+            <form id="user-form">
                 <input type="text" name="username" placeholder="Username">
                 <input type="email" name="email" placeholder="Email">
-                <input type="submit" value="Add User">
+                <button type="submit" formaction="/dashboard/add_user" method="post">Add User</button>
+                <button type="submit" formaction="/dashboard/update_user" method="POST">Update User</button>
+                <button type="submit" formaction="/dashboard/remove_user" method="POST">Remove User</button>
             </form>
-            
-            <form id="remove-user-form">
-                <input type="text" name="username" placeholder="Username">
-                <input type="submit" value="Remove User">
-            </form>
-            <!-- Additional user management forms and table go here -->
         </div>
 
         <!-- Designer Management -->
         <div id="designer-management">
             <h2>Designer Management</h2>
-            <form id="add-designer-form">
+            <form id="designer-form">
                 <input type="text" name="name" placeholder="Name">
                 <input type="email" name="email" placeholder="Email">
                 <input type="text" name="portfolio_link" placeholder="Portfolio Link">
-                <input type="submit" value="Add Designer">
+                <button type="submit" formaction="/dashboard/add_designer" method="POST">Add Designer</button>
+                <button type="submit" formaction="/dashboard/update_designer" method="POST">Update Designer</button>
+                <button type="submit" formaction="/dashboard/remove_designer" method="POST">Remove Designer</button>
             </form>
-            <form id="remove-designer-form">
-                <input type="text" name="name" placeholder="Name">
-                <input type="submit" value="Remove Designer">
-            </form>
-            <!-- Additional designer management forms and table go here -->
         </div>
 
         <!-- Portfolio Management -->
         <div id="portfolio-management">
             <h2>Portfolio Management</h2>
-            <form id="add-portfolio-form">
+            <form id="portfolio-form">
                 <input type="text" name="title" placeholder="Title">
                 <input type="text" name="description" placeholder="Description">
                 <input type="text" name="image_url" placeholder="Image URL">
                 <input type="text" name="project_type" placeholder="Project Type">
-                <input type="submit" value="Add Project">
+                <button type="submit" formaction="/dashboard/add_portfolio" method="POST">Add Portfolio Item</button>
+                <button type="submit" formaction="/dashboard/update_portfolio" method="POST">Update Portfolio Item</button>
+                <button type="submit" formaction="/dashboard/remove_portfolio" method="POST">Remove Portfolio Item</button>
             </form>
-            <form id="remove-portfolio-form">
-                <input type="text" name="title" placeholder="Title">
-                <input type="submit" value="Remove Project">
-            </form>
-        
-            <!-- Additional portfolio management forms and table go here -->
         </div>
-        <!-- Other sections (e.g., analytics) can be added similarly -->
     </div>
 </body>
 </html>
