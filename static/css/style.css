@@ -83,19 +83,21 @@ body {
 /* ==========================
     Hero   
 =========================== */
+
 #Hero {
+    background-image: url('https://syaciuejmtfsntyotudm.supabase.co/storage/v1/object/sign/Gstudios_bucket/banner2.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJHc3R1ZGlvc19idWNrZXQvYmFubmVyMi5qcGciLCJpYXQiOjE3MTY5NDUwMDcsImV4cCI6MTc0ODQ4MTAwN30.KdSv-vhk20DOpjwoaFwBucilXOE_xvzQN_bkycKY4yI&t=2024-05-29T01%3A10%3A07.554Z');
+    background-size: cover;
+    background-position: center;
     gap: 2em;
     flex-wrap: wrap-reverse;
     align-items: center;
     min-height: calc(100vh - 93.6px);
-    /* Set a specific height */
-    height: 50vh; 
-    /* Create the parallax scrolling effect */
+    height: 50vh;
     background-attachment: fixed;
-    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 
 #Hero>* {
     flex: 1 1 25em;
@@ -125,8 +127,36 @@ body {
 
 
 /* ==========================
+    Portfolio   
+=========================== */
+
+#portfolio h1{
+    text-align: center;
+    padding-top: 10%;
+    margin-bottom: 60px;
+    font-weight: 600;
+    position: relative;
+}
+ 
+#portfolio h1::after{
+    content: '';
+    background: #303ef7;
+    width: 100px;
+    height: 5px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#designers .card {
+    padding-bottom: 70px;
+}
+
+/* ==========================
     Service   
 =========================== */
+
 #service h1{
     text-align: center;
     padding-top: 10%;
@@ -182,8 +212,23 @@ body {
 /* ==========================
     Designers   
 ========================== */
-#designers h2 {
-    text-transform: uppercase;
+#designers h1{
+    text-align: center;
+    padding-top: 10%;
+    margin-bottom: 60px;
+    font-weight: 600;
+    position: relative;
+}
+ 
+#designers h1::after{
+    content: '';
+    background: #303ef7;
+    width: 100px;
+    height: 5px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 #designers .card {
@@ -191,7 +236,7 @@ body {
     position: relative;
     z-index: 1;
     overflow: hidden;
-    box-shadow: 5px 5px 10px #000;
+    box-shadow: 5px 5px 10px rgba(48, 62, 247, 0.5);    
 }
 
 #designers .card-img-top {
@@ -216,7 +261,7 @@ body {
     overflow: hidden;
     bottom: 0;
     transition: all 0.4s;
-    background: #303ef7;
+    background: #fff;
     z-index: 5;
 }
 
@@ -224,20 +269,28 @@ body {
     height: 150px;
 }
 
-#designers .card-body h5 {
+#designers .card-body h3 {
     text-transform: uppercase;
-    color: #fff;
+    /*color: #fff;*/
     font-size: 16px;
     margin: 5px;
+    font-weight: 600;
 }
 
 #designers .card:hover .card-body {
-    background: #000;
+    background: #303ef7;
+}
+#designers .card:hover p {
+    color: #fff;
+}
+
+#designers .card:hover h3 {
+    color: #fff;
 }
 
 #designers .card-body p {
     margin-top: 15px;
-    color: #fff;
+    /*color: #fff;*/
 }
 
 
@@ -246,8 +299,8 @@ body {
     Footer   
 =========================== */
 .footer {
-    background-color: #90ccf4;
-    padding: 20px 0;
+    /*background-color: #90ccf4;*/
+    padding: 50px 0;
 }
 .footer h3{
     font-size: 28px;
@@ -285,7 +338,7 @@ body {
     top: 100%;
     width: 0;
     height: 2px;
-    background: #f18930;
+    background: #303ef7;
     transition-duration: .5s;
 }
 
@@ -314,11 +367,11 @@ body {
 }
 
 .footer a:hover{
-    color: #f18930;
+    color: #303ef7;
 }
 
 .footer .social-icons i:hover{
-    color: #f18930;
+    color: #303ef7;
 }
 
 

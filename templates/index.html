@@ -34,10 +34,10 @@
                                 <a href="#designers" class="nav-link">Designers</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#portifolio" class="nav-link">Portfolio</a>
+                                <a href="#portfolio" class="nav-link">Portfolio</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#services" class="nav-link">Services</a>
+                                <a href="#service" class="nav-link">Services</a>
                             </li>  
                             <li class="nav-item">
                                 <a href="/dashboard" class="nav-link">Dashboard</a>
@@ -52,7 +52,7 @@
 
         <main>
             <!-- Hero -->
-            <section id="Hero" class="d-flex align-items-center" style="background-image: url('{{ url_for('static', filename='images/banner2.jpg') }}'); background-size: cover background-position: center;">
+            <section id="Hero" class="d-flex align-items-center">
 
                 <div class="container">
                     <div class="row">
@@ -81,37 +81,37 @@
                         <div class = "col-md-4 service">
                             <i class="fas fa-pen-nib fa-2x mb-3"></i>
                             <h2>Marketing Design</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur</p>
+                            <p>Strategic marketing designs that resonate.</p>
                         </div>
                         <!-- Service 2 -->
                         <div class = "col-md-4 service">
                             <i class="fa-solid fa-palette fa-2x mb-3"></i>
                             <h2>Brand Identity</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur</p>
+                            <p>Cohesive visuals for lasting impact.</p>
                         </div>
                         <!-- Service 3 -->
                         <div class = "col-md-4 service ">
                             <i class="fa-regular fa-heart fa-2x mb-3"></i>
                             <h2>Social media design</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur</p>
+                            <p>Scroll-stopping content.</p>
                         </div>
                         <!-- Service 4 -->
                         <div class = "col-md-4 service">
                             <i class="fa-solid fa-rectangle-ad fa-2x mb-3"></i>
                             <h2>Advertisment</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur</p>
+                            <p>Eye-catching ads that convert.</p>
                         </div>
                         <!-- Service 5 -->
                         <div class = "col-md-4 service">
                             <i class="fa-solid fa-sign-hanging fa-2x mb-3"></i>
                             <h2>Signage</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur</p>
+                            <p>Creative visual landmarks.</p>
                         </div>
                         <!-- Service 6 -->
                         <div class = "col-md-4 service">
                             <i class="fa-solid fa-pen-nib fa-2x mb-3"></i>	
                             <h2>Merchandise Design</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur</p>
+                            <p>Wearable art for your brand.</p>
                         </div>
                     </div>
                 </div>
@@ -119,10 +119,10 @@
             <!-- End Services Section -->
 
             <!-- Designers -->
-            <div class="row row-cols-1 row-cols-md-4 g-4">
-                {% for designer in designers %}
+            <!--<div class="row row-cols-1 row-cols-md-4 g-4">
+                {% for designer in designers %}-->
                 <!-- Designer -->
-                <div class="col">
+                <!-- <div class="col">
                     <div class="card">
                         <img src="{{ designer.profile_picture }}" class="card-img-top" alt="{{ designer.name }}">
                         <div class="card-body">
@@ -133,12 +133,12 @@
                     </div>
                 </div>
                 {% endfor %}
-            </div>
+            </div>-->
 
             <!-- Designers Section -->
             <section id="designers"class="py-5">
                 <div class="container">
-                    <h2 class="text-center mb-5">Our Designers</h2>
+                    <h1 class="text-center mb-5">Designers</h1>
                 <p class="text-center mb-5">Meet our talented designers.</p>
 
                 <!-- Designers -->
@@ -148,7 +148,7 @@
                         <div class="card">
                             <img src="https://syaciuejmtfsntyotudm.supabase.co/storage/v1/object/sign/Gstudios_bucket/designer7.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJHc3R1ZGlvc19idWNrZXQvZGVzaWduZXI3LmpwZyIsImlhdCI6MTcxNjQzNTQ1MywiZXhwIjoxNzQ3OTcxNDUzfQ.W1J_PoB-y7_ucAe9uYE9SbnZc398ikduiIM-TaRXjp8&t=2024-05-23T03%3A37%3A33.886Z" class="card-img-top" alt="Designer 1">
                             <div class="card-body">
-                                <h5 class="card-title">Joan Kamau</h5>
+                                <h3 class="card-title">Joan Kamau</h3>
                                 <p class="card-text">Marketing Designer</p>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum corporis quidem ea et at tempora repudiandae nam assumenda cupiditate nisi autem, excepturi magni minima nemo.</p>
                             </div>
@@ -160,7 +160,7 @@
                         <div class="card">
                             <img src="{{ url_for('static', filename='images/designer2.jpg') }}" class="card-img-top" alt="Designer 1">
                             <div class="card-body">
-                                <h5 class="card-title">Elias Kibwana</h5>
+                                <h3 class="card-title">Elias Kibwana</h3>
                                 <p class="card-text">Marketing Designer</p>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum corporis quidem ea et at tempora repudiandae nam assumenda cupiditate nisi autem, excepturi magni minima nemo.</p>
                             </div>
@@ -172,7 +172,7 @@
                         <div class="card">
                             <img src="{{ url_for('static', filename='images/designer3.jpg') }}" class="card-img-top" alt="Designer 1">
                             <div class="card-body">
-                                <h5 class="card-title">Kevin Kimani</h5>
+                                <h3 class="card-title">Kevin Kimani</h3>
                                 <p class="card-text">Marketing Designer</p>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum corporis quidem ea et at tempora repudiandae nam assumenda cupiditate nisi autem, excepturi magni minima nemo.</p>
                             </div>
@@ -184,7 +184,7 @@
                         <div class="card">
                             <img src="{{ url_for('static', filename='images/designer4.jpg') }}" class="card-img-top" alt="Designer 1">
                             <div class="card-body">
-                                <h5 class="card-title">Mercy Odhiambo</h5>
+                                <h3 class="card-title">Mercy Odhiambo</h3>
                                 <p class="card-text">Marketing Designer</p>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum corporis quidem ea et at tempora repudiandae nam assumenda cupiditate nisi autem, excepturi magni minima nemo.</p>
                             </div>
@@ -207,18 +207,17 @@
             <!-- End Designers Section -->
 
             <!-- Portifolio Section -->
-            <section class="section section-portfolio py-5" id="portifolio">
+            <section class="section section-portfolio py-5" id="portfolio">
                 <div class="container">
-                    <h2 class="text-center mb-5">Latest Works</h2>
-                    <p class="text-center mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Dicta eum a repudiandae amet explicabo? Id, quas.</p>
+                    <h1 class="text-center mb-5">Latest Works</h1>
+                    <p class="text-center mb-5">Where Imagination Meets Pixels: Dive into our Portfolio</p>
 
                     <!-- Portfolio Buttons -->
-                <div class="d-flex justify-content-center mb-5">
+                <!--<div class="d-flex justify-content-center mb-5">
                     <button class="btn btn-primary mx-2" data-btn-num="1">Social Media</button>
                     <button class="btn btn-primary mx-2" data-btn-num="2">Marketing</button>
                     <button class="btn btn-primary mx-2" data-btn-num="3">Event and party</button>                   
-                </div>
+                </div>-->
 
                 <!-- Portfolio Images -->
                 <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -228,7 +227,7 @@
                             <img src="{{ url_for('static', filename='images/event1.jpeg') }}" class="card-img-top" alt="previous-works">
                             <div class="card-body">
                                 <h5 class="card-title">Graduation Party </h5>
-                                <a href="" class="btn btn-primary">View Project</a>
+                                <!--<a href="" class="btn btn-primary">View Project</a>-->
                             </div>
                         </div>
                     </div>
@@ -238,7 +237,7 @@
                             <img src="{{ url_for('static', filename='images/event2.jpeg') }}" class="card-img-top" alt="previous-works">
                             <div class="card-body">
                                 <h5 class="card-title">Live Music party</h5>
-                                <a href="" class="btn btn-primary">View Project</a>
+                                <!--<a href="" class="btn btn-primary">View Project</a>-->
                             </div>
                         </div>
                     </div>
@@ -248,7 +247,7 @@
                             <img src="{{ url_for('static', filename='images/event3.jpeg') }}" class="card-img-top" alt="previous-works">
                             <div class="card-body">
                                 <h5 class="card-title">Luxury Event </h5>
-                                <a href="" class="btn btn-primary">View Project</a>
+                                <!--<a href="" class="btn btn-primary">View Project</a>-->
                             </div>
                         </div>
                     </div>
@@ -285,11 +284,11 @@
                 <div class="col-md-4">
                     <h3>Quick Links</h3>
                     <ul class="list-unstyled">
-                        <li><a href="">Home</a></li>
-                        <li><a href="">About</a></li>
-                        <li><a href="">Services</a></li>
-                        <li><a href="">Portfolio</a></li>
-                        <li><a href="">Contact</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <!--<li><a href="">About</a></li>-->
+                        <li><a href="#service">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <!--<li><a href="">Contact</a></li>-->
                     </ul>
                 </div>
                 <!-- Follow Us -->
