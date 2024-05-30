@@ -40,11 +40,14 @@ def sign_up():
             # Sign up the user using Supabase Auth API
             user, error = supabase.auth.sign_up({"email": email, "password": password})
             if user:
+                # Get the user ID (UUID) from the sign-up response
+                user_id = user[0]  # Assuming the user ID is at index 0
+
                 # Update the user's profile to include their name (username)
-               # supabase.table("profiles").update({"username": username}).match({"id": user['id']}).execute()
+                #supabase.table("profiles").update({"username": username}).match({"id": user_id}).execute()
 
                 # Log the user ID if sign-up is successful
-                print(f"New user signed up. User ID: {user[1]}")
+                print(f"New user signed up. User ID: {user_id}")
 
                 # Redirect to a success page or another route
                 return render_template("success.html", message="Sign-up successful!")
@@ -54,7 +57,8 @@ def sign_up():
         return render_template('error.html', message=error.message)
 
     # Render the sign-up form
-    return render_template('sign_up.html')
+    return render_template('dashboard.html')
+
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -75,7 +79,7 @@ def login():
             return render_template('dashboard.html')  # Redirect to the dashboard or another page
 
     # Render the login form
-    return render_template('login.html')
+    return render_template('dashboard.html')
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)

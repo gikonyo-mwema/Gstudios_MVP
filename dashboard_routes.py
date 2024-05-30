@@ -18,7 +18,7 @@ supabase = create_client(url, key)
 #####################################################
 
 # Add a new designer
-@dashboard_bp.route('/add_designer', methods=['POST'])
+@dashboard_bp.route('/add_designer', methods=['GET', 'POST'])
 def add_designer():
     try:
         # Extract form data
