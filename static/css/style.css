@@ -5,6 +5,10 @@ body {
 /* ==========================
     Navigation   
 =========================== */
+.navbar {
+    background-color: transparent;
+}
+
 .navbar-brand img {
     max-width: 35px;
 }
@@ -35,6 +39,16 @@ body {
     width: 30px;
 }
 
+.navbar-toggler {
+    position: absolute;
+    right: 5%;
+    width: 30px;
+    height: 30px;
+    padding: 2em;
+    z-index: 1000;
+    transition: background-size 0.3s ease-in-out;
+}
+
 /* Media */
 @media screen and (max-width:900px) {
     .navbar-toggler {
@@ -50,6 +64,8 @@ body {
         z-index: 1000;
         transition: background-size 0.3s ease-in-out;        
     }
+
+    
 
     .navbar-toggler.active {
         position: fixed;
