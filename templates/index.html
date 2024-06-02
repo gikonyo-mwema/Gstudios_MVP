@@ -4,10 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Gstudios</title>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">-->
         <script src="https://kit.fontawesome.com/58c4d5ec0f.js" crossorigin="anonymous"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <link rel="stylesheet" type="text/css" href="../static/css/style.css">
     </head>
     <body>
         
@@ -119,68 +121,54 @@
             </section>    
             <!-- End Services Section -->
 
-            <!-- Designers -->
-            <!--<div class="row row-cols-1 row-cols-md-4 g-4">
-                {% for designer in designers %}-->
-                <!-- Designer -->
-                <!-- <div class="col">
-                    <div class="card">
-                        <img src="{{ designer.profile_picture }}" class="card-img-top" alt="{{ designer.name }}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ designer.name }}</h5>
-                            <p class="card-text">Marketing Designer</p>
-                            <p>{{ designer.bio }}</p>
+           
+            <!-- Designers Section -->
+       <section id="designers" class="py-5">
+        <div class="container">
+            <h1 class="text-center mb-5">Designers</h1>
+            <p class="text-center mb-5">Meet our talented designers.</p>
+
+
+             <!-- Designers -->
+             <div class="row row-cols-1 row-cols-md-4 g-4">
+                <!-- Designer 1 -->
+                <div class="col">
+                    <div class="card" id="designers-data">
+                        <!--<div id="designers-data">-->
+
                         </div>
                     </div>
                 </div>
-                {% endfor %}
-            </div>-->
+            </div>         
+            
+        </section>
 
 
 
-            <!-- Designers Section 
-<section id="designers" class="py-5">
-    <div class="container">
-        <h1 class="text-center mb-5">Designers</h1>
-        <p class="text-center mb-5">Meet our talented designers.</p>-->
 
-        <!-- Placeholder for designers 
-        <div id="designers-container" class="row row-cols-1 row-cols-md-4 g-4">
-            <!-- Designers will be dynamically added here 
-        </div>
-    </div>
-</section>-->
+
 
             
 
-            <!-- Designers Section -->
+
+
+    
+
+            
+
+            <!-- Designers Section 
             <section id="designers" class="py-5">
                 <div class="container">
                     <h1 class="text-center mb-5">Designers</h1>
-                    <p class="text-center mb-5">Meet our talented designers.</p>
+                    <p class="text-center mb-5">Meet our talented designers.</p>-->
                     
-                    <!-- Designers 
-                    <div class="row row-cols-1 row-cols-md-4 g-4">
-                        {% for designer in designers_data %}
-                       <div class="col">
-                             <!--<div class="card">
-                                <img src="{{ designer['profile_picture'] }}" class="card-img-top" alt="{{ designer['name'] }}">
-                                <div class="card-body">
-                                    <h3 class="card-title">{{ designer['name'] }}</h3>
-                                    <p class="card-text">{{ designer['bio'] }}</p>
-                                    <p class="card-text">{{ designer['type_of_designer'] }}</p>-->
-                                <!-- </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </section>-->
+                     
+                    
 
 
-                <!-- Designers -->
-                <div class="row row-cols-1 row-cols-md-4 g-4">
-                    <!-- Designer 1 -->
+                <!-- Designers 
+                <div class="row row-cols-1 row-cols-md-4 g-4">-->
+                    <!-- Designer 1 
                     <div class="col">
                         <div class="card">
                             <img src="https://syaciuejmtfsntyotudm.supabase.co/storage/v1/object/sign/Gstudios_bucket/designer7.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJHc3R1ZGlvc19idWNrZXQvZGVzaWduZXI3LmpwZyIsImlhdCI6MTcxNjQzNTQ1MywiZXhwIjoxNzQ3OTcxNDUzfQ.W1J_PoB-y7_ucAe9uYE9SbnZc398ikduiIM-TaRXjp8&t=2024-05-23T03%3A37%3A33.886Z" class="card-img-top" alt="Designer 1">
@@ -190,9 +178,9 @@
                                 <p>Ink-slinger and visual storyteller. My illustrations breathe life into ideas.</p>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
 
-                    <!-- Designer 2 -->
+                    <!-- Designer 2 
                     <div class="col">
                         <div class="card">
                             <img src="{{ url_for('static', filename='images/designer2.jpg') }}" class="card-img-top" alt="Designer 1">
@@ -202,9 +190,9 @@
                                 <p>Brand alchemist. Transforming ideas into cohesive visual identities.</p>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
 
-                    <!-- Designer 3 -->
+                    <!-- Designer 3 
                     <div class="col">
                         <div class="card">
                             <img src="{{ url_for('static', filename='images/designer3.jpg') }}" class="card-img-top" alt="Designer 1">
@@ -214,9 +202,9 @@
                                 <p>Web designer obsessed with pixel perfection. Transforming wireframes into stunning, user-friendly interfaces.</p>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
 
-                    <!-- Designer 4 -->
+                    <!-- Designer 4 
                     <div class="col">
                         <div class="card">
                             <img src="{{ url_for('static', filename='images/designer4.jpg') }}" class="card-img-top" alt="Designer 1">
@@ -226,7 +214,7 @@
                                 <p>Passionate logo designer with an eye for simplicity and impact. Crafting visual identities that resonate with brands and leave a lasting impression.</p>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
 
                     <!-- Designer 5
                 </div>
@@ -342,6 +330,7 @@
         </div>
         </footer>
         </div>
+        <script type="module" src="../static/js/main.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     </body>
 </html>
