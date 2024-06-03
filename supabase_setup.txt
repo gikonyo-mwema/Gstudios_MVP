@@ -1,0 +1,27 @@
+password - GstudiosWeb254!
+
+Project configuration
+
+URL - https://syaciuejmtfsntyotudm.supabase.co
+
+Project Api Keys
+
+Public - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN5YWNpdWVqbXRmc250eW90dWRtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTY0MjYwMDEsImV4cCI6MjAzMjAwMjAwMX0.VCoIbvcSZKARa6jru3gukVgWjkf5mM8ZSgAdpnx2oyo
+
+          
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN5YWNpdWVqbXRmc250eW90dWRtIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxNjQyNjAwMSwiZXhwIjoyMDMyMDAyMDAxfQ.zm-KDT0VbzQEYE46dz8G2ctVQqY0hU5WHCYnd26wdxI
+
+
+curl 'https://syaciuejmtfsntyotudm.supabase.co/rest/v1/portfolio?select=*' \
+-H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN5YWNpdWVqbXRmc250eW90dWRtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTY0MjYwMDEsImV4cCI6MjAzMjAwMjAwMX0.VCoIbvcSZKARa6jru3gukVgWjkf5mM8ZSgAdpnx2oyo" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN5YWNpdWVqbXRmc250eW90dWRtIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxNjQyNjAwMSwiZXhwIjoyMDMyMDAyMDAxfQ.zm-KDT0VbzQEYE46dz8G2ctVQqY0hU5WHCYnd26wdxI"
+          
+
+
+curl -X POST 'https://syaciuejmtfsntyotudm.supabase.co/rest/v1/portfolio' \
+-H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN5YWNpdWVqbXRmc250eW90dWRtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTY0MjYwMDEsImV4cCI6MjAzMjAwMjAwMX0.VCoIbvcSZKARa6jru3gukVgWjkf5mM8ZSgAdpnx2oyo" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN5YWNpdWVqbXRmc250eW90dWRtIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxNjQyNjAwMSwiZXhwIjoyMDMyMDAyMDAxfQ.zm-KDT0VbzQEYE46dz8G2ctVQqY0hU5WHCYnd26wdxI" \
+-H "Content-Type: application/json" \
+-H "Prefer: return=minimal" \
+-d '{ "title": "logo", "description": "company log", "image_url": "https://drive.google.com/file/d/1zGpFU2uwMu2CqDpwcbOvStzUut4IBzXc/view?usp=drive_link", "project_type": "logo"}'
+                    

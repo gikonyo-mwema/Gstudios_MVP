@@ -4,6 +4,8 @@ from flask import Flask, Blueprint, render_template, request
 
 from supabase import create_client
 import os
+import uuid
+
 
 dashboard_bp = Blueprint('dashboard', __name__)
 
@@ -98,7 +100,7 @@ def remove_designer(designer_id):
 
 
 # Add a new portfolio item
-@dashboard_bp.route('/add_portfolio', methods=['POST'])
+@dashboard_bp.route('/add_portfolio', methods=['POST', 'GET'])
 def add_portfolio():
     try:
         # Extract form data
@@ -174,27 +176,28 @@ def remove_portfolio(portfolio_id):
 def add_profile():
     try:
         # Extract form data
-        title = request.form.get("title")
-        description = request.form.get("description")
-        image_url = request.form.get("image_url")
-        project_type = request.form.get("project_type")
+        username = request.form.get("username")
+        email = request.form.get("email")
 
-        # Add the profile item to the Supabase 'profiles' table
-        profiles_data, error = supabase.table('profiles').insert([
-            {"title": title, "description": description, "image_url": image_url, "project_type": project_type}
-        ]).execute()
+        # Generate a UUID for the new profile
+        new_profile_id = str(uuid.uuid4())
+
+        # Insert the new profile into the 'profiles' table
+        profiles_data, error = supabase.table('profiles').insert({
+            "id": new_profile_id,
+            "username": username,
+            "email": email
+        }).execute()
 
         if error:
-            # Handle the error case
-            return render_template('dashboard.html', error_message=f"Error adding profile item: {error.message}")
+            return f"Error adding profile: {error.message}", 500
 
-        # Redirect to a success page or display a success message
-        return render_template('success.html', message="Profile item added successfully!")
+        return "Profile added successfully!"
 
     except Exception as e:
-        # Handle other exceptions
-        return render_template('dashboard.html', error_message=f"Error adding profile item: {str(e)}")
+        return f"Error adding profile: {str(e)}", 500
 
+       
 
 # Update profile info
 @dashboard_bp.route('/update_profile', methods=['POST'])

@@ -228,6 +228,11 @@ body {
 /* ==========================
     Designers   
 ========================== */
+#designers .designers-data{
+    display: flex;
+    flex-direction: row;
+}
+
 #designers h1{
     text-align: center;
     padding-top: 10%;

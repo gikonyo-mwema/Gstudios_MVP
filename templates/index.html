@@ -127,109 +127,42 @@
         <div class="container">
             <h1 class="text-center mb-5">Designers</h1>
             <p class="text-center mb-5">Meet our talented designers.</p>
+            <div id="designers-data" >
 
 
-             <!-- Designers -->
-             <div class="row row-cols-1 row-cols-md-4 g-4">
-                <!-- Designer 1 -->
-                <div class="col">
-                    <div class="card" id="designers-data">
-                        <!--<div id="designers-data">-->
+             <!-- Designers 
+             <div class="row row-cols-1 row-cols-md-4 g-4">-->
+                <!-- Designer 1 
+                <div class="col ">
+                    <div class="card">
+                        
+                            
+                              <div  class="col" id="designers-data">-->
 
+                                </div>
+                            </div>
+                        
+                        </div>
+                        </div>
+
+                            <!--<img src="${designer.profile_picture}" class="card-img-top" alt="Profile Pic"></img>
+                            <div class="card-body">-->
+                                <!-- Designer information inside card-body 
+                                <h5 class="card-title">${designer.name}</h5>
+                                <p class="card-text">${designer.type_of_designer}</p>
+                                <p>${designer.bio}</p>
+                                <a href="${designer.portfolio_link}" class="btn btn-primary">See more</a>
+                            </div>-->
                         </div>
                     </div>
                 </div>
             </div>         
             
         </section>
+        <!-- End Designers Section -->
 
 
-
-
-
-
-            
-
-
-
-    
-
-            
-
-            <!-- Designers Section 
-            <section id="designers" class="py-5">
-                <div class="container">
-                    <h1 class="text-center mb-5">Designers</h1>
-                    <p class="text-center mb-5">Meet our talented designers.</p>-->
-                    
-                     
-                    
-
-
-                <!-- Designers 
-                <div class="row row-cols-1 row-cols-md-4 g-4">-->
-                    <!-- Designer 1 
-                    <div class="col">
-                        <div class="card">
-                            <img src="https://syaciuejmtfsntyotudm.supabase.co/storage/v1/object/sign/Gstudios_bucket/designer7.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJHc3R1ZGlvc19idWNrZXQvZGVzaWduZXI3LmpwZyIsImlhdCI6MTcxNjQzNTQ1MywiZXhwIjoxNzQ3OTcxNDUzfQ.W1J_PoB-y7_ucAe9uYE9SbnZc398ikduiIM-TaRXjp8&t=2024-05-23T03%3A37%3A33.886Z" class="card-img-top" alt="Designer 1">
-                            <div class="card-body">
-                                <h3 class="card-title">John Kamau</h3>
-                                <p class="card-text">Illustrator</p>
-                                <p>Ink-slinger and visual storyteller. My illustrations breathe life into ideas.</p>
-                            </div>
-                        </div>
-                    </div>-->
-
-                    <!-- Designer 2 
-                    <div class="col">
-                        <div class="card">
-                            <img src="{{ url_for('static', filename='images/designer2.jpg') }}" class="card-img-top" alt="Designer 1">
-                            <div class="card-body">
-                                <h3 class="card-title">Elias Kibwana</h3>
-                                <p class="card-text">Brand Designer</p>
-                                <p>Brand alchemist. Transforming ideas into cohesive visual identities.</p>
-                            </div>
-                        </div>
-                    </div>-->
-
-                    <!-- Designer 3 
-                    <div class="col">
-                        <div class="card">
-                            <img src="{{ url_for('static', filename='images/designer3.jpg') }}" class="card-img-top" alt="Designer 1">
-                            <div class="card-body">
-                                <h3 class="card-title">Kevin Kimani</h3>
-                                <p class="card-text">Web Designer</p>
-                                <p>Web designer obsessed with pixel perfection. Transforming wireframes into stunning, user-friendly interfaces.</p>
-                            </div>
-                        </div>
-                    </div>-->
-
-                    <!-- Designer 4 
-                    <div class="col">
-                        <div class="card">
-                            <img src="{{ url_for('static', filename='images/designer4.jpg') }}" class="card-img-top" alt="Designer 1">
-                            <div class="card-body">
-                                <h3 class="card-title">Mercy Odhiambo</h3>
-                                <p class="card-text">Logo Designer</p>
-                                <p>Passionate logo designer with an eye for simplicity and impact. Crafting visual identities that resonate with brands and leave a lasting impression.</p>
-                            </div>
-                        </div>
-                    </div>-->
-
-                    <!-- Designer 5
-                </div>
-                    <div class="col">
-                        <div class="card">
-                            <img src="{{ url_for('static', filename='images/designer7.jpg') }}" class="card-img-top" alt="Designer 1">
-                            <div class="card-body">
-                                <h5 class="card-title">Joan Kamau</h5>
-                                <p class="card-text">Marketing Designer</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum corporis quidem ea et at tempora repudiandae nam assumenda cupiditate nisi autem, excepturi magni minima nemo.</p>
-                            </div>
-                        </div>
-                    </div>--->
-            </section>
-            <!-- End Designers Section -->
+                
 
             <!-- Portifolio Section -->
             <section class="section section-portfolio py-5" id="portfolio">
@@ -249,7 +182,7 @@
                     <!-- Project 1 -->
                     <div class="col">
                         <div class="card">
-                            <img src="{{ url_for('static', filename='images/event1.jpeg') }}" class="card-img-top" alt="previous-works">
+                            <img src="../static/images/event1.jpeg" class="card-img-top" alt="previous-works">
                             <div class="card-body">
                                 <h5 class="card-title">Graduation Party </h5>
                                 <!--<a href="" class="btn btn-primary">View Project</a>-->
@@ -259,7 +192,7 @@
                     <!-- Project 2 -->
                     <div class="col">
                         <div class="card">
-                            <img src="{{ url_for('static', filename='images/event2.jpeg') }}" class="card-img-top" alt="previous-works">
+                            <img src="../static/images/event2.jpeg" class="card-img-top" alt="previous-works">
                             <div class="card-body">
                                 <h5 class="card-title">Live Music party</h5>
                                 <!--<a href="" class="btn btn-primary">View Project</a>-->
@@ -269,7 +202,7 @@
                     <!-- Project 3 -->
                     <div class="col">
                         <div class="card">
-                            <img src="{{ url_for('static', filename='images/event3.jpeg') }}" class="card-img-top" alt="previous-works">
+                            <img src="../static/images/event3.jpeg" class="card-img-top" alt="previous-works">
                             <div class="card-body">
                                 <h5 class="card-title">Luxury Event </h5>
                                 <!--<a href="" class="btn btn-primary">View Project</a>-->

@@ -25,23 +25,39 @@ async function fetchDesignersData() {
         // Clear any existing content
         // container.innerHTML = '';
 
+       
+
         // Iterate through designers and display their information
         designers.forEach((designer) => {
           const designerInfo = document.createElement('div');
-          //designerInfo.classList.add('d-block', 'p-2', 'bg-primary', 'text-white'); // Add Bootstrap classes
-          designerInfo.innerHTML = `          
+          designerInfo.classList.add('d-block', 'bg-primary', 'text-white'); // Add Bootstrap classes
+          designerInfo.innerHTML = `
+          <div class="row row-cols-1 row-cols-md-4 g-4" >
+          <div class="col">
+          <div class="card">
+         
           <img src="${designer.profile_picture}" class="card-img-top" alt="Profile Pic"></img>
+          <div class="card-body">
           <h5 class="card-title">${designer.name}</h5>      
           <p class="card-text">${designer.type_of_designer}</p>
           <p>${designer.bio}</p>
-          <a href="${designer.portfolio_link}" class="class="btn btn-primary"> See more </p>
+          <a href="${designer.portfolio_link}" class="class="btn btn-primary"> See more </a>  
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
         `;
       container.appendChild(designerInfo);
     });
   } catch (error) {
     console.error('Error fetching data:', error.message);
   }
-}
+
+   // Append the designerInfo div to your container (assuming you have an element with the ID "container")
+ container.appendChild(designerInfo);
+};
+
 
 // Call the function to fetch data
 fetchDesignersData();
@@ -51,81 +67,46 @@ fetchDesignersData();
 
 
 
-        // Iterate through designers and display their information
-        //designers.forEach((designer) => {
-          //  const designerInfo = document.createElement('div');
-         //   designerInfo.classList.add('designer-info'); // Add a CSS class if needed
-      //      designerInfo.innerHTML = `
-      //          <p>Name: ${designer.name}</p>
-      //          <p>Email: ${designer.email}</p>
-       //         <p>Gender: ${designer.Gender}</p> 
-       //         <p>Type of Designer: ${designer.type_of_designer}</p>
-       //         <p>Portfolio Link: ${designer.portfolio_link}</p>
-       //         <p>Profile Pic: ${designer.profile_picture}</p>              
-       //     `;
-       //     container.appendChild(designerInfo);
-       // });
- //   } catch (error) {
-  //      console.error('Error fetching data:', error.message);
-  //  }
-//}
+// Sign Up Process
+const handleSignUp = async (e) => {
+  e.preventDefault(); // Prevent form submission (good practice)
 
-// Call the function to fetch data
-//fetchDesignersData();
+  // Get form input values
+  const username = document.getElementById('username').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirmPassword').value;
 
-
-
-
-
-
-
-
-
-
-
-  
-  /* Handle user signup
-  function handleSignUp() {
-    const email = document.getElementById('signup-email').value;
-    const password = document.getElementById('signup-password').value;
-  
-    // Validate email and password (you can add more validation here)
-  
-    // Sign up the user using Supabase Auth API
-    fetch('/sign_up', {
-      method: 'POST',
-      body: JSON.stringify({ email, password }),
-      headers: { 'Content-Type': 'application/json' }
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Sign-up response:', data);
-        // Redirect to a success page or handle errors
-      })
-      .catch(error => console.error('Error signing up:', error));
+  // Validate input - Check if passwords match
+  if (password !== confirmPassword) {
+    console.error('Passwords do not match');
+    return;
   }
-  
-  // Handle user login
-  function handleLogin() {
-    const email = document.getElementById('login-email').value;
-    const password = document.getElementById('login-password').value;
-  
-    // Validate email and password (you can add more validation here)
-  
-    // Sign in the user using Supabase Auth API
-    fetch('/login', {
-      method: 'POST',
-      body: JSON.stringify({ email, password }),
-      headers: { 'Content-Type': 'application/json' }
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Login response:', data);
-        // Redirect to the dashboard or handle errors
-      })
-      .catch(error => console.error('Error logging in:', error));
+
+  try {
+    // Sign up the user
+    const { data, error } = await supabase.auth.signUp({ email, password });
+    if (error) {
+      console.error('Error signing up:', error.message);
+    } else {
+      console.log('User signed up successfully:', data.user);
+
+      // Redirect to the dashboard (dashboard.html)
+      window.location.href = 'dashboard.html';
+    }
+  } catch (error) {
+    console.error('An error occurred during sign-up:', error.message);
   }
-  
-  // Call fetchDesigners() when needed (e.g., on page load)
-  fetchDesigners();
-  */
+};
+
+
+// Attach the handleSignUp function to the form submission
+document.addEventListener('DOMContentLoaded', () => {
+  const signupForm = document.getElementById('signup-form');
+  if (signupForm) {
+    signupForm.addEventListener('submit', handleSignUp);
+  } else {
+    console.error('Element with ID "signup-form" not found.');
+  }
+});
+

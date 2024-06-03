@@ -1,0 +1,83 @@
+/* ==========================
+    Designers   
+========================== */
+#designers h1{
+    text-align: center;
+    padding-top: 10%;
+    margin-bottom: 60px;
+    font-weight: 600;
+    position: relative;
+}
+ 
+#designers h1::after{
+    content: '';
+    background: #303ef7;
+    width: 100px;
+    height: 5px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#designers .card {
+    padding-bottom: 70px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    box-shadow: 5px 5px 10px rgba(48, 62, 247, 0.5);    
+}
+
+#designers .card-img-top {
+    position: relative;
+    z-index: 5;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    max-height: 400;
+    transition: 0.3s;
+}
+
+#designers .card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+#designers .card-body {
+    height: 80px;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    overflow: hidden;
+    bottom: 0;
+    transition: all 0.4s;
+    background: #fff;
+    z-index: 5;
+}
+
+#designers .card:hover .card-body {
+    height: 150px;
+}
+
+#designers .card-body h3 {
+    text-transform: uppercase;
+    /*color: #fff;*/
+    font-size: 16px;
+    margin: 5px;
+    font-weight: 600;
+}
+
+#designers .card:hover .card-body {
+    background: #303ef7;
+}
+#designers .card:hover p {
+    color: #fff;
+}
+
+#designers .card:hover h3 {
+    color: #fff;
+}
+
+#designers .card-body p {
+    margin-top: 15px;
+    /*color: #fff;*/
+}
