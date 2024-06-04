@@ -30,10 +30,10 @@ async function fetchDesignersData() {
         // Iterate through designers and display their information
         designers.forEach((designer) => {
           const designerInfo = document.createElement('div');
-          designerInfo.classList.add('d-block', 'bg-primary', 'text-white'); // Add Bootstrap classes
+          //designerInfo.classList.add('d-block', 'bg-primary', 'text-white'); // Add Bootstrap classes
           designerInfo.innerHTML = `
           <div class="row row-cols-1 row-cols-md-4 g-4" >
-          <div class="col">
+          <div class="col-md-3">
           <div class="card">
          
           <img src="${designer.profile_picture}" class="card-img-top" alt="Profile Pic"></img>
@@ -57,8 +57,6 @@ async function fetchDesignersData() {
    // Append the designerInfo div to your container (assuming you have an element with the ID "container")
  container.appendChild(designerInfo);
 };
-
-
 // Call the function to fetch data
 fetchDesignersData();
 

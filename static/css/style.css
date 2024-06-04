@@ -21,7 +21,8 @@ body {
 .navbar-nav a {
     font-weight: 500;
     font-size: 18px;
-    transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;  
+
 }
 
 .navbar-nav a::after {
@@ -101,7 +102,7 @@ body {
 =========================== */
 
 #Hero {
-    background-image: url('https://syaciuejmtfsntyotudm.supabase.co/storage/v1/object/sign/Gstudios_bucket/banner2.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJHc3R1ZGlvc19idWNrZXQvYmFubmVyMi5qcGciLCJpYXQiOjE3MTY5NDUwMDcsImV4cCI6MTc0ODQ4MTAwN30.KdSv-vhk20DOpjwoaFwBucilXOE_xvzQN_bkycKY4yI&t=2024-05-29T01%3A10%3A07.554Z');
+    background-image: url('https://syaciuejmtfsntyotudm.supabase.co/storage/v1/object/sign/Gstudios_bucket/Hero%20image/yuriy-kovalev-nN1HSDtKdlw-unsplash.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJHc3R1ZGlvc19idWNrZXQvSGVybyBpbWFnZS95dXJpeS1rb3ZhbGV2LW5OMUhTRHRLZGx3LXVuc3BsYXNoLmpwZyIsImlhdCI6MTcxNzUyMDcyNCwiZXhwIjoxNzQ5MDU2NzI0fQ.0HrgZWq4UdyrNpJBk8lxMnrmeHjBzo2bfVI8nkEo2LQ&t=2024-06-04T17%3A05%3A24.735Z');
     background-size: cover;
     background-position: center;
     gap: 2em;
@@ -228,10 +229,9 @@ body {
 /* ==========================
     Designers   
 ========================== */
-#designers .designers-data{
-    display: flex;
-    flex-direction: row;
-}
+
+
+
 
 #designers h1{
     text-align: center;
@@ -306,6 +306,10 @@ body {
 }
 
 #designers .card:hover h3 {
+    color: #fff;
+}
+
+#designers .card:hover h5 {
     color: #fff;
 }
 
