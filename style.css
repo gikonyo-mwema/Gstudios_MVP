@@ -1,0 +1,404 @@
+body {
+    background-color: #f2f2f2;
+}
+
+/* ==========================
+    Navigation   
+=========================== */
+.navbar {
+    background-color: transparent;
+}
+
+.navbar-brand img {
+    max-width: 35px;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 35px;
+}
+
+.navbar-nav a {
+    font-weight: 500;
+    font-size: 18px;
+    transition: 0.3s ease-in-out;  
+
+}
+
+.navbar-nav a::after {
+    display: block;
+    content: "";
+    width: 0;
+    height: 3px;
+    margin: 0 auto;
+    background-color: #ebebeb;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+.navbar-nav a:hover::after {
+    width: 30px;
+}
+
+.navbar-toggler {
+    position: absolute;
+    right: 5%;
+    width: 30px;
+    height: 30px;
+    padding: 2em;
+    z-index: 1000;
+    transition: background-size 0.3s ease-in-out;
+}
+
+/* Media */
+@media screen and (max-width:900px) {
+    .navbar-toggler {
+        position: absolute;
+        right: 5%;
+        background-image: url('../imgs/your-image.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 30px;
+        width: 30px;
+        height: 30px;
+        padding: 2em;
+        z-index: 1000;
+        transition: background-size 0.3s ease-in-out;        
+    }
+
+    
+
+    .navbar-toggler.active {
+        position: fixed;
+        background-image: url('../imgs/your-image.png');
+        background-size: 25px;
+    }
+
+    .navbar-collapse {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        max-height: 100%;
+        opacity: 1;
+        transform-origin: top;
+        transform: scale(1, 1);
+    }
+
+    .navbar-collapse.active {
+        position: fixed;        
+        margin: auto;
+        max-height: 100%;
+        opacity: 1;
+        background-color: rgba(63, 0, 156, 1);
+        transform: scale(1,1);
+    }
+}
+/* End Navigation */
+
+
+
+/* ==========================
+    Hero   
+=========================== */
+
+#Hero {
+    background-image: url('./static/images/Landing page image.jpeg');
+    background-size: cover;
+    background-position: center;
+    gap: 2em;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    min-height: calc(100vh - 93.6px);
+    height: 50vh;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+#Hero>* {
+    flex: 1 1 25em;
+}
+
+#Hero h1 {
+    font-weight: 700;
+    font-size: clamp(40px, 5vm, 70px);
+    line-height: 1;
+}
+
+#Hero p {
+    font-weight: 500;
+    font-size: 30px;
+    padding: 1em 0;
+}
+
+#Hero a {
+    font-weight: 700;
+    font-size: 20px;
+    padding: 0.3em 1em;
+    background: linear-gradient(90deg, #345aa4 0%, rgba(63, 0, 156, 0.90) 164.26%);
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+}
+/* End Hero */
+
+
+/* ==========================
+    Portfolio   
+=========================== */
+
+#portfolio h1{
+    text-align: center;
+    padding-top: 10%;
+    margin-bottom: 60px;
+    font-weight: 600;
+    position: relative;
+}
+ 
+#portfolio h1::after{
+    content: '';
+    background: #303ef7;
+    width: 100px;
+    height: 5px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#designers .card {
+    padding-bottom: 70px;
+}
+
+/* ==========================
+    Service   
+=========================== */
+
+#service h1{
+    text-align: center;
+    padding-top: 10%;
+    margin-bottom: 60px;
+    font-weight: 600;
+    position: relative;
+}
+
+#service h1::after{
+    content: '';
+    background: #303ef7;
+    width: 100px;
+    height: 5px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.service{
+    /*border: solid navy 5px;*/
+    text-align: center;
+    padding: 25px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    background: transparent;
+    transition: transform 0.5s, background 0.5s;
+}
+
+.service i{
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #303ef7;
+}
+
+.service h2{
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.service:hover{
+    background: #303ef7;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+.service:hover i{
+    color: #fff;
+}
+
+
+/* ==========================
+    Designers   
+========================== */
+
+
+
+
+#designers h1{
+    text-align: center;
+    padding-top: 10%;
+    margin-bottom: 60px;
+    font-weight: 600;
+    position: relative;
+}
+ 
+#designers h1::after{
+    content: '';
+    background: #303ef7;
+    width: 100px;
+    height: 5px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#designers .card {
+    padding-bottom: 70px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    box-shadow: 5px 5px 10px rgba(48, 62, 247, 0.5);    
+}
+
+#designers .card-img-top {
+    position: relative;
+    z-index: 5;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    max-height: 400;
+    transition: 0.3s;
+}
+
+#designers .card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+#designers .card-body {
+    height: 80px;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    overflow: hidden;
+    bottom: 0;
+    transition: all 0.4s;
+    background: #fff;
+    z-index: 5;
+}
+
+#designers .card:hover .card-body {
+    height: 150px;
+}
+
+#designers .card-body h3 {
+    text-transform: uppercase;
+    /*color: #fff;*/
+    font-size: 16px;
+    margin: 5px;
+    font-weight: 600;
+}
+
+#designers .card:hover .card-body {
+    background: #303ef7;
+}
+#designers .card:hover p {
+    color: #fff;
+}
+
+#designers .card:hover h3 {
+    color: #fff;
+}
+
+#designers .card:hover h5 {
+    color: #fff;
+}
+
+#designers .card-body p {
+    margin-top: 15px;
+    /*color: #fff;*/
+}
+
+
+
+/* ==========================
+    Footer   
+=========================== */
+.footer {
+    /*background-color: #90ccf4;*/
+    padding: 50px 0;
+}
+.footer h3{
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.footer p{
+    width: 190px;
+    margin: auto;
+    padding: 7px;
+}
+
+.footer ul{
+    text-align: center;
+}
+
+.footer .list-unstyled{
+    padding: 0;
+}
+
+.footer .list-unstyled li{
+    width: auto;
+    text-align: center;
+    list-style-type: none;
+    padding: 7px;
+    position: relative;
+}
+
+.footer .list-unstyled li::before{
+    content: '';
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 100%;
+    width: 0;
+    height: 2px;
+    background: #303ef7;
+    transition-duration: .5s;
+}
+
+.footer .list-unstyled li:hover::before{
+    width: 70px;
+}
+
+.footer .social-icons{
+    text-align: center;
+    padding: 0;
+}
+
+.footer .social-icons li{
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+}
+
+.footer .social-icons i{
+    color:  #343434;
+    font-size: 25px;
+}
+
+.footer a{
+    text-decoration: none;
+}
+
+.footer a:hover{
+    color: #303ef7;
+}
+
+.footer .social-icons i:hover{
+    color: #303ef7;
+}
+
+
+
+
