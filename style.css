@@ -101,18 +101,18 @@ body {
     Hero   
 =========================== */
 
-#Hero {
+#Hero {  
     background-image: url('./static/images/Landing page image.jpeg');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;   
     gap: 2em;
     flex-wrap: wrap-reverse;
     align-items: center;
     min-height: calc(100vh - 93.6px);
     height: 50vh;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-attachment: fixed; 
+    
 }
 
 
@@ -124,12 +124,14 @@ body {
     font-weight: 700;
     font-size: clamp(40px, 5vm, 70px);
     line-height: 1;
+    color: #000;
 }
 
 #Hero p {
     font-weight: 500;
     font-size: 30px;
     padding: 1em 0;
+    color: #000;
 }
 
 #Hero a {
