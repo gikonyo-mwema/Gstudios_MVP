@@ -124,14 +124,14 @@ body {
     font-weight: 700;
     font-size: clamp(40px, 5vm, 70px);
     line-height: 1;
-    color: #000;
+    background-color: #000;
 }
 
 #Hero p {
     font-weight: 500;
     font-size: 30px;
     padding: 1em 0;
-    color: #000;
+    background-color: #000;
 }
 
 #Hero a {
