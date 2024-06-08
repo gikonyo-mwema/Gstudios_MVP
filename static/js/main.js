@@ -7,20 +7,91 @@ const supabase = createClient(supabaseUrl, supabaseKey)
 
 
 
-// Assuming you have an element with ID 'designers-data'
+
 const container = document.getElementById('designers-data'); 
 
 // Fetch designer data from Supabase (specific columns)
-async function fetchDesignersData() {
-  try {
-        const { data: designers, error } = await supabase
-            .from('designers')
-            .select('name, email, portfolio_link, profile_picture, bio, type_of_designer, "Gender"');
+//async function fetchDesignersData() {
+  //try {
+        ///const { data: designers, error } = await supabase
+        //    .from('designers')
+        //    .select('name, email, portfolio_link, profile_picture, bio, type_of_designer, "Gender"');
 
-        if (error) {
+        //if (error) {
+        //    console.error('Error fetching data:', error.message);
+        //    return;
+        //}
+
+
+
+        async function fetchDesignersData() {
+          try {
+            const { data: designers, error } = await supabase
+              .from('designers')
+              .select('name, email, portfolio_link, profile_picture, bio, type_of_designer, "Gender"');
+        
+            if (error) {
+              console.error('Error fetching data:', error.message);
+              return;
+            }
+        
+            // Get the container element
+            const container = document.getElementById('cards-container');
+        
+            // Create a card for each designer
+            designers.forEach((designer) => {
+              // Create the card elements
+              const card = document.createElement('div');
+              card.className = 'swiper-slide card';
+        
+              const cardImage = document.createElement('div');
+              cardImage.className = 'card__image';
+        
+              const img = document.createElement('img');
+              img.src = designer.profile_picture;
+              img.alt = 'card image';
+        
+              const cardContent = document.createElement('div');
+              cardContent.className = 'card__content';
+        
+              const cardTitle = document.createElement('span');
+              cardTitle.className = 'card__title';
+              cardTitle.textContent = designer.type_of_designer;
+        
+              const cardName = document.createElement('span');
+              cardName.className = 'card__name';
+              cardName.textContent = designer.name;
+        
+              const cardText = document.createElement('p');
+              cardText.className = 'card__text';
+              cardText.textContent = designer.bio;
+        
+              const cardBtn = document.createElement('button');
+              cardBtn.className = 'card__btn';
+              cardBtn.textContent = 'View More';
+        
+              // Append the elements to their parents
+              cardImage.appendChild(img);
+              cardContent.appendChild(cardTitle);
+              cardContent.appendChild(cardName);
+              cardContent.appendChild(cardText);
+              cardContent.appendChild(cardBtn);
+              card.appendChild(cardImage);
+              card.appendChild(cardContent);
+        
+              // Append the card to the container
+              container.appendChild(card);
+            });
+          } catch (error) {
             console.error('Error fetching data:', error.message);
-            return;
+          }
         }
+        
+        // Call the function to fetch data
+        fetchDesignersData();
+        
+
+        
 
         // Clear any existing content
         // container.innerHTML = '';
@@ -28,37 +99,37 @@ async function fetchDesignersData() {
        
 
         // Iterate through designers and display their information
-        designers.forEach((designer) => {
-          const designerInfo = document.createElement('div');
+        // designers.forEach((designer) => {
+        // const designerInfo = document.createElement('div');
           //designerInfo.classList.add('d-block', 'bg-primary', 'text-white'); // Add Bootstrap classes
-          designerInfo.innerHTML = `
-          <div class="row row-cols-1 row-cols-md-4 g-4" >
-          <div class="col-md-3">
-          <div class="card">
+         // designerInfo.innerHTML = `
+          //<div class="row row-cols-1 row-cols-md-4 g-4" >
+          //<div class="col-md-3">
+          //<div class="card">
          
-          <img src="${designer.profile_picture}" class="card-img-top" alt="Profile Pic"></img>
-          <div class="card-body">
-          <h5 class="card-title">${designer.name}</h5>      
-          <p class="card-text">${designer.type_of_designer}</p>
-          <p>${designer.bio}</p>
-          <a href="${designer.portfolio_link}" class="class="btn btn-primary"> See more </a>  
-          </div>
-          </div>
-          </div>
-          </div>
-          </div>
-        `;
-      container.appendChild(designerInfo);
-    });
-  } catch (error) {
-    console.error('Error fetching data:', error.message);
-  }
+          //<img src="${designer.profile_picture}" class="card-img-top" alt="Profile Pic"></img>
+          //<div class="card-body">
+          //<h5 class="card-title">${designer.name}</h5>      
+         // <p class="card-text">${designer.type_of_designer}</p>
+         // <p>${designer.bio}</p>
+         // <a href="${designer.portfolio_link}" class="class="btn btn-primary"> See more </a>  
+         // </div>
+          //</div>
+         // </div>
+         // </div>
+         // </div>
+        //`;
+     // container.appendChild(designerInfo);
+   // });
+  //} catch (error) {
+   // console.error('Error fetching data:', error.message);
+ // }
 
    // Append the designerInfo div to your container (assuming you have an element with the ID "container")
- container.appendChild(designerInfo);
-};
+ //container.appendChild(designerInfo);
+//};
 // Call the function to fetch data
-fetchDesignersData();
+//fetchDesignersData();
 
 
 
