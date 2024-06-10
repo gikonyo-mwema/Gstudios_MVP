@@ -10,56 +10,32 @@
 
 </head>
 <body>
-    <!-- Sidebar -->
-    <div id="sidebar">
-        <h2>Navigation</h2>
-        <ul>
-            <li><a href="#user-management">User Management</a></li>
-            <li><a href="#designer-management">Designer Management</a></li>
-            <li><a href="#portfolio-management">Portfolio Management</a></li>
-        </ul>
-    </div>
+
 
     <!-- Main Content -->
     <div id="main-content">
-        <!-- User Management -->
-        <div id="user-management">
-            <h2>Profile Management</h2>
-            <form id="user-form">
-                <input type="text" name="username" placeholder="Username">
-                <input type="email" name="email" placeholder="Email">
-                <button type="submit" formaction="/dashboard/add_user" method="post">Add </button>
-                <button type="submit" formaction="/dashboard/update_user" method="POST">Update </button>
-                <button type="submit" formaction="/dashboard/remove_user" method="POST">Remove </button>
-            </form>
-        </div>
+        <h1 text-center mb-5">Gstudios</h1>
+        
 
         <!-- Designer Management -->
         <div id="designer-management">
             <h2>Designer Management</h2>
             <form id="designer-form">
+    
                 <input type="text" name="name" placeholder="Name">
                 <input type="email" name="email" placeholder="Email">
-                <input type="text" name="portfolio_link" placeholder="Portfolio Link">
+                <input type="text" name="Portfolio link" placeholder="Portfolio link">
+                <input type="text" name="portfolio picture" placeholder="Portfolio pic">
+                <input type="text" name="Bio" placeholder="bio">
+                <input type="text" name=" Type of Designer" placeholder="Type of Designer">
+                <input type="text" name="Gender" placeholder="Gender">
                 <button type="submit" formaction="/dashboard/add_designer" method="POST">Add Designer</button>
                 <button type="submit" formaction="/dashboard/update_designer" method="POST">Update Designer</button>
                 <button type="submit" formaction="/dashboard/remove_designer" method="POST">Remove Designer</button>
             </form>
         </div>
 
-        <!-- Portfolio Management -->
-        <div id="portfolio-management">
-            <h2>Portfolio Management</h2>
-            <form id="portfolio-form">
-                <input type="text" name="title" placeholder="Title">
-                <input type="text" name="description" placeholder="Description">
-                <input type="text" name="image_url" placeholder="Image URL">
-                <input type="text" name="project_type" placeholder="Project Type">
-                <button type="submit" formaction="/dashboard/add_portfolio" method="POST">Add Portfolio Item</button>
-                <button type="submit" formaction="/dashboard/update_portfolio" method="POST">Update Portfolio Item</button>
-                <button type="submit" formaction="/dashboard/remove_portfolio" method="POST">Remove Portfolio Item</button>
-            </form>
-        </div>
+        
     </div>
 </body>
 </html>
