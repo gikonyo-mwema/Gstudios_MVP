@@ -1,5 +1,4 @@
 from flask import Flask, render_template
-from dashboard_routes import dashboard_bp
 from supabase import create_client
 import os
 
@@ -19,3 +18,11 @@ def home():
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
+
+@app.route("/sign_up")
+def sign_up():
+    return render_template("sign_up.html")
+
+@app.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html")
