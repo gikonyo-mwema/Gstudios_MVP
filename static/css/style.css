@@ -23,10 +23,10 @@
 body{
     font-family: var(--font);
     /*display: flex;*/
-    justify-content: center;
-    align-items: center;
+    /*justify-content: center;*/
+    /*align-items: center;*/
     height: 100vh;
-
+    color: black;
     background-color: var(--bg-color);
 }
 
@@ -35,7 +35,71 @@ body{
 /* ==========================
     Navigation   
 =========================== */
-.navbar {
+
+.nav{
+    /*height: 100vh;*/
+    width: 100%;
+    /*background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./static/images/yuriy-kovalev-nN1HSDtKdlw-unsplash.jpg');*/
+    background-size: cover;
+    background-position: center;  
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.logo{
+    color: White;
+    font-size: 28px;
+}
+span{
+    color: #303ef7;
+}
+
+nav ul li{
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px 20px;
+    
+}
+nav ul li a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+nav ul li a:hover{
+    color: #303ef7;
+    transition: .3s;
+}
+a{
+    border: none;
+    text-decoration: none;
+    background: #303ef7;
+    padding: 12px 30px;
+    border-radius: 30px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    transition: .4s;
+    align-self: center;
+}
+
+button:hover{
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+
+
+
+
+
+/*.navbar {
     background-color: transparent;
 }
 
@@ -78,7 +142,7 @@ body{
     padding: 2em;
     z-index: 1000;
     transition: background-size 0.3s ease-in-out;
-}
+}*/
 
 /* Media */
 @media screen and (max-width:900px) {
@@ -294,6 +358,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    
     /*background-color: aqua;*/
 }
 
@@ -311,6 +376,8 @@ body{
 }
 
 .card__image{
+    
+    
     width: 10em;
     height: 10em;
     border-radius: 50%;
@@ -320,6 +387,9 @@ body{
 }
 
 .swiper-slide img{
+
+   
+
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -363,7 +433,11 @@ body{
 }
 
 
+.swiper-pagination{
+    padding: 1em;
+    margin: 1em 2em;
 
+}
 
 
 
