@@ -7,35 +7,28 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dashboard.css') }}">
     <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
-
 </head>
 <body>
-
-
     <!-- Main Content -->
     <div id="main-content">
-        <h1 text-center mb-5">Gstudios</h1>
+        <h1 class="text-center mb-5">Gstudios</h1>
         
-
         <!-- Designer Management -->
         <div id="designer-management">
             <h2>Designer Management</h2>
-            <form id="designer-form">
-    
+            <form id="designer-form">    
                 <input type="text" name="name" placeholder="Name">
                 <input type="email" name="email" placeholder="Email">
-                <input type="text" name="Portfolio link" placeholder="Portfolio link">
-                <input type="text" name="portfolio picture" placeholder="Portfolio pic">
-                <input type="text" name="Bio" placeholder="bio">
-                <input type="text" name=" Type of Designer" placeholder="Type of Designer">
-                <input type="text" name="Gender" placeholder="Gender">
-                <button type="submit" formaction="/dashboard/add_designer" method="POST">Add Designer</button>
-                <button type="submit" formaction="/dashboard/update_designer" method="POST">Update Designer</button>
-                <button type="submit" formaction="/dashboard/remove_designer" method="POST">Remove Designer</button>
+                <input type="text" name="portfolio_link" placeholder="Portfolio Link">
+                <input type="text" name="portfolio_pic" placeholder="Portfolio Picture">
+                <input type="text" name="bio" placeholder="Bio">
+                <input type="text" name="type_of_designer" placeholder="Type of Designer">
+                <input type="text" name="gender" placeholder="Gender">
+                <button type="submit" formaction="javascript:addDesigner(event)">Add Designer</button>
+                <button type="submit" formaction="javascript:updateDesigner(event)">Update Designer</button>
+                <button type="submit" formaction="javascript:removeDesigner(event)">Remove Designer</button>
             </form>
         </div>
-
-        
     </div>
 </body>
 </html>
