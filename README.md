@@ -7,7 +7,8 @@ Deployed Site
 Final Project Blog Article
 LinkedIn
 
-!Screenshot of Gstudios (Replace '#' with the link to your screenshot)
+
+![Gstudios Website](https://raw.githubusercontent.com/gikonyo-mwema/Gstudios_MVP/main/static/images/gstudios%20website.png)
 
 ## Installation
 (Provide instructions on how to install your project)
