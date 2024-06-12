@@ -93,45 +93,8 @@ const container = document.getElementById('designers-data');
 
         
 
-        // Clear any existing content
-        // container.innerHTML = '';
-
-       
-
-        // Iterate through designers and display their information
-        // designers.forEach((designer) => {
-        // const designerInfo = document.createElement('div');
-          //designerInfo.classList.add('d-block', 'bg-primary', 'text-white'); // Add Bootstrap classes
-         // designerInfo.innerHTML = `
-          //<div class="row row-cols-1 row-cols-md-4 g-4" >
-          //<div class="col-md-3">
-          //<div class="card">
-         
-          //<img src="${designer.profile_picture}" class="card-img-top" alt="Profile Pic"></img>
-          //<div class="card-body">
-          //<h5 class="card-title">${designer.name}</h5>      
-         // <p class="card-text">${designer.type_of_designer}</p>
-         // <p>${designer.bio}</p>
-         // <a href="${designer.portfolio_link}" class="class="btn btn-primary"> See more </a>  
-         // </div>
-          //</div>
-         // </div>
-         // </div>
-         // </div>
-        //`;
-     // container.appendChild(designerInfo);
-   // });
-  //} catch (error) {
-   // console.error('Error fetching data:', error.message);
- // }
-
-   // Append the designerInfo div to your container (assuming you have an element with the ID "container")
- //container.appendChild(designerInfo);
-//};
-// Call the function to fetch data
-//fetchDesignersData();
-
-
+        
+      
 
 
 
@@ -169,6 +132,7 @@ const handleSignUp = async (e) => {
 };
 
 
+
 // Attach the handleSignUp function to the form submission
 document.addEventListener('DOMContentLoaded', () => {
   const signupForm = document.getElementById('signup-form');
@@ -179,3 +143,41 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+
+
+// Login Process
+const handleLogin = async (e) => {
+  e.preventDefault(); // Prevent form submission (good practice)
+
+  // Get form input values
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  try {
+    // Log in the user
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: username,
+      password: password
+    });
+    if (error) {
+      console.error('Error logging in:', error.message);
+    } else {
+      console.log('User logged in successfully:', data.user);
+
+      // Redirect to the dashboard (dashboard.html)
+      window.location.href = 'dashboard.html';
+    }
+  } catch (error) {
+    console.error('An error occurred during login:', error.message);
+  }
+};
+
+// Attach the handleLogin function to the form submission
+document.addEventListener('DOMContentLoaded', () => {
+  const loginForm = document.querySelector('.login-form form');
+  if (loginForm) {
+    loginForm.addEventListener('submit', handleLogin);
+  } else {
+    console.error('Login form not found.');
+  }
+});
