@@ -3,9 +3,10 @@
 ## Introduction
 Gstudios is a Kenyan-based graphic design marketplace. The platform serves three main purposes: to showcase Kenyan designers, to exhibit a portfolio of high-quality designs, and to highlight the services offered by these designers. The platform is designed to cater to clients in search of graphic designers and to designers seeking collaborative opportunities. As the sole developer of this project, I was responsible for both front-end and back-end development, ensuring a comprehensive and user-friendly application.
 
-Deployed Site
-Final Project Blog Article
-LinkedIn
+
+[Final Project Blog Article](https://docs.google.com/document/d/1m114LHmCpiFQA72uDQxQ6zFyo29fUgTdBRBizUsCg90/edit?usp=sharing)
+[Landing Page](https://gstudios-website.onrender.com/)
+[LinkedIn](www.linkedin.com/in/gikonyomwema)
 
 
 ![Gstudios Website](https://raw.githubusercontent.com/gikonyo-mwema/Gstudios_MVP/main/static/images/gstudios%20website.png)
